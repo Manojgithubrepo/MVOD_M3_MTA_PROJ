@@ -1,3 +1,19 @@
 ID: MVOD_M3_MTA_PROJ
 _schema-version: '2.1'
 version: 0.0.1
+
+modules:
+ - name: MVOD_M3_DB
+   type: hdb
+   path: MVOD_M3_DB
+   requires:
+    - name: hdi_MVOD_M3_DB
+
+resources:
+ - name: hdi_MVOD_M3_DB
+   parameters:
+      config:
+         schema: MVOD_M3_SCH
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
